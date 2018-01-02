@@ -59,7 +59,7 @@ def extractor(in_dir, out_dir, char_dict):
             if os.path.isdir(tag_str):
                 pass
             else:
-                os.mkdir(tag_str)
+                os.mkdirs(tag_str)
             cv2.imwrite(tag_str + '/' + str(i) + ".png", image)
         f.close()
     return i

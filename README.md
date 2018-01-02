@@ -25,7 +25,7 @@ A simple CNN with 4 convolutional layers and 2 fully-connected layers with dropo
 
 References:
 
-http://blog.topspeedsnail.com/archives/10897
 https://zhuanlan.zhihu.com/p/24698483?refer=burness-DL
+http://blog.topspeedsnail.com/archives/10897
 http://yuhao.im/files/Zhang_CNNChar.pdf
 
