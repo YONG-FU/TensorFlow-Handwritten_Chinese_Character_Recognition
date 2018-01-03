@@ -76,9 +76,9 @@ def cnn():
     flat = slim.flatten(pool4)
     # Two fully-connected layers with dropout rate as mentioned at the start
     # First layer used tanh() as activation function
-    fcnet1 = slim.fully_connected(slim.dropout(flat, keep_prob=keep_prob), 1024, activation_fn=tf.nn.tanh,
-                                  scope="fcnet1")
+    fcnet1 = slim.fully_connected(slim.dropout(flat, keep_prob=keep_prob), 1024, activation_fn=tf.nn.tanh,scope="fcnet1")
     fcnet2 = slim.fully_connected(slim.dropout(fcnet1, keep_prob=keep_prob), 3755, activation_fn=None, scope="fcnet2")
+
     # loss function is defined as cross entropy on result of softmax function on last layer
     loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(logits=fcnet2, labels=labels))
     # compare result to actual label to get accuracy
