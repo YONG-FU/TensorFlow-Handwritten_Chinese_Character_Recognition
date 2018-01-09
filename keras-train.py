@@ -33,7 +33,7 @@ def train(model):
 
     model.compile(
         loss='categorical_crossentropy',
-        optimizer='nadam',
+        optimizer='adam',
         metrics=['accuracy'])
 
     model.fit_generator(
@@ -47,17 +47,17 @@ def train(model):
 
 def build_model(include_top=True, input_shape=(64, 64, 1), classes=image_classes):
     img_input = Input(shape=input_shape)
-    x = Conv2D(filters=32, kernel_size=(3, 3), activation='elu', padding='same', name='block1_conv1')(img_input)
-    x = Conv2D(filters=32, kernel_size=(3, 3), activation='elu', padding='same', name='block1_conv2')(x)
+    x = Conv2D(filters=32, kernel_size=(3, 3), activation='relu', padding='same', name='block1_conv1')(img_input)
+    x = Conv2D(filters=32, kernel_size=(3, 3), activation='relu', padding='same', name='block1_conv2')(x)
     x = MaxPooling2D(pool_size=(2, 2), strides=(2, 2), name='block1_pool')(x)
-    x = Conv2D(filters=64, kernel_size=(3, 3), activation='elu', padding='same', name='block2_conv1')(x)
-    x = Conv2D(filters=64, kernel_size=(3, 3), activation='elu', padding='same', name='block2_conv2')(x)
+    x = Conv2D(filters=64, kernel_size=(3, 3), activation='relu', padding='same', name='block2_conv1')(x)
+    x = Conv2D(filters=64, kernel_size=(3, 3), activation='relu', padding='same', name='block2_conv2')(x)
     x = MaxPooling2D(pool_size=(2, 2), strides=(2, 2), name='block2_pool')(x)
 
     if include_top:
         x = Flatten(name='flatten')(x)
         x = Dropout(0.05)(x)
-        x = Dense(1024, activation='elu', name='fc2')(x)
+        x = Dense(1024, activation='relu', name='fc2')(x)
         x = Dense(classes, activation='softmax', name='predictions')(x)
 
         model = Model(img_input, x, name='model')
