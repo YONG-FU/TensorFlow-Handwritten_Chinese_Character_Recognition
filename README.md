@@ -1,6 +1,6 @@
 # Handwritten Chinese Character Recognition
 
-Environment: Python+TensorFlow+OpenCV3
+Environment: Python + TensorFlow + OpenCV3
 
 本人的环境是Windows开发环境，机器是Win7 64位的，可以到JetBrains的官方网站下载PyCharm IDE。工具的版本信息如下：
 
@@ -23,9 +23,8 @@ https://pan.baidu.com/s/1o84jIrg#list/path=%2F%E5%AD%A6%E4%B9%A0%2F%E8%B5%84%E6%
 
 A simple CNN with 4 convolutional layers and 2 fully-connected layers with dropout. Accuracy on test set is 93%. In my practice, I trained 100k steps on GTX1080, it take 10 hours and turns out that the accuracy is still gradually increasing, so I guess that you can acquire better accuracy by adding couple layers and training more steps. You are more than welcome to train from my checkpoint and help me to increase the accuracy even 0.1%, I would greatly appreciate it.
 
-References:
 
+References:
 https://zhuanlan.zhihu.com/p/24698483?refer=burness-DL
 http://blog.topspeedsnail.com/archives/10897
-http://yuhao.im/files/Zhang_CNNChar.pdf
 
